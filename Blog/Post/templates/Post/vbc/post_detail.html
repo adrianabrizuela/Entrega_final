@@ -1,0 +1,59 @@
+{% extends 'post/base.html' %}
+
+{% block title %}Detalle de la Sala{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        Detalle del Post
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ GUSTAVOCERATI.titulo }}</h5>
+                        {% if GUSTAVOCERATI.disponible %}
+                        <h6 class="card-subtitle mb-2">Disponibilidad: Disponible</h6>
+                        {% else %}
+                        <h6 class="card-subtitle mb-2">Disponibilidad: No Disponible</h6>
+                        {% endif %}
+                        <p class="card-text">subtitulo: {{ GUSTAVOCERATI.subtitulo }}</p>
+                        <p class="card-text">Descripción: {{ GUSTAVOCERATI.descripcion | default:"No proporcionado" }}</p>
+                        <p class="card-text">Autor: {{ GUSTAVOCERATI.autor }}</p>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3>Reservas para esta Sala</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Subtítulo</th>
+                                <th scope="col">Contenido</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Autor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for post in GUSTAVOCERATI.post.all %}
+                            <tr>
+                                <td>{{ post.titulo }}</td>
+                                <td>{{ post.subtitulo }}</td>
+                                <td>{{ post.contenido }}</td>
+                                <td>{{ post.fecha| date:"d/m/Y" }}</td>
+                                <td>{{ post.autor | default:"No proporcionado" }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5">No hay reservas para esta sala.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

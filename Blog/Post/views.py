@@ -13,7 +13,8 @@ from django.views.generic import (
     DeleteView,
 )
 
-from .forms import PostSearchForm
+
+
 
 
 def home_view(request):
@@ -50,7 +51,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = "post/vbc/post_form.html"
-    fields = ["titulo", "subtitulo", "contenido", "fecha",  "autor"]
+    fields = ["titulo", "subtitulo", "contenido", "fecha",  "autor", "imagen"]
     context_object_name = "post"
     success_url = reverse_lazy("post-list")
 
@@ -58,29 +59,10 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "post/vbc/post_form.html"
-    fields = ["titulo", "subtitulo", "contenido", "fecha", "autor"]
+    fields = ["titulo", "subtitulo", "contenido", "fecha", "autor", "imagen"]
     success_url = reverse_lazy("post-list")
 
 
-
-# def sala_search_view(request):
-#     if request.method == "GET":
-#         form = PostSearchForm()
-#         return render(
-#             request, "bookings/form_search.html", context={"search_form": form}
-#         )
-#     elif request.method == "POST":
-#         #  devolverle a "chrome" la lista de reservas encontrada o avisar que no se encontró nada
-#         form = SalaSearchForm(request.POST)
-#         if form.is_valid():
-#             nombre_de_sala = form.cleaned_data["nombre"]
-#             salas_encontradas = Sala.objects.filter(nombre= nombre_de_sala).all()
-#             contexto_dict = {"ADRIANDARGELOS": salas_encontradas}
-#             return render(request, "bookings/vbc/sala_list.html", contexto_dict)
-#         else: 
-#             return render(
-#             request, "bookings/form_search.html", context={"search_form": form}
-#         )
 
 #-----------------------------------------------------------------
 #                      login/logout
@@ -146,3 +128,15 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_object(self):
         return self.request.user
+    
+#-----------------------------------------------------------------
+#                      acerca de mi
+#-----------------------------------------------------------------
+
+
+def about(request):
+    # Aquí puedes definir la información sobre los dueños de la página
+    owners_info = "Acerca de los dueños de la página: ..."
+
+    # Renderiza la plantilla "about.html" con la información de los dueños
+    return render(request, 'about.html', {'owners_info': owners_info})

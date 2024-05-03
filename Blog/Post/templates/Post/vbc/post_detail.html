@@ -12,27 +12,30 @@
                         Detalle del Post
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ GUSTAVOCERATI.titulo }}</h5>
-                        {% if GUSTAVOCERATI.disponible %}
+                        <h5 class="card-title">País de destino: {{ GUSTAVOCERATI.titulo }}</h5>
+                        <!-- {% if GUSTAVOCERATI.disponible %}
                         <h6 class="card-subtitle mb-2">Disponibilidad: Disponible</h6>
                         {% else %}
                         <h6 class="card-subtitle mb-2">Disponibilidad: No Disponible</h6>
-                        {% endif %}
-                        <p class="card-text">subtitulo: {{ GUSTAVOCERATI.subtitulo }}</p>
-                        <p class="card-text">Descripción: {{ GUSTAVOCERATI.descripcion | default:"No proporcionado" }}</p>
+                        {% endif %} -->
+                        <p class="card-text">Ciudad: {{ GUSTAVOCERATI.subtitulo }}</p>
+                        <p class="card-text">Comentarios: {{ GUSTAVOCERATI.contenido | default:"No proporcionado" }}</p>
                         <p class="card-text">Autor: {{ GUSTAVOCERATI.autor }}</p>
+                        <p class="card-text">Imagen: {{ GUSTAVOCERATI.imagen }}</p>
                     </div>
                 </div>
-                <div class="mt-4">
+                <!-- <div class="mt-4">
                     <h3>Reservas para esta Sala</h3>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Titulo</th>
-                                <th scope="col">Subtítulo</th>
-                                <th scope="col">Contenido</th>
+                                <th scope="col">País de destino</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Comentarios</th>
                                 <th scope="col">Fecha</th>
                                 <th scope="col">Autor</th>
+                                <th scope="col">Imagen</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +46,8 @@
                                 <td>{{ post.contenido }}</td>
                                 <td>{{ post.fecha| date:"d/m/Y" }}</td>
                                 <td>{{ post.autor | default:"No proporcionado" }}</td>
+                                <td>{{ post.imagen }}</td>
+                                
                             </tr>
                             {% empty %}
                             <tr>
@@ -51,7 +56,7 @@
                             {% endfor %}
                         </tbody>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

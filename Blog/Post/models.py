@@ -12,7 +12,7 @@ class Post(models.Model):
     contenido = models.TextField(blank=True, null=True)
     fecha = models.DateField(default=timezone.now)
     autor = models.ForeignKey(User, null= True, on_delete= models.SET_NULL)
-    image = models.ImageField(upload_to='blog_images/')  # Definimos el campo de imagen
+    imagen = models.ImageField(upload_to='blog_images/')  # Definimos el campo de imagen
 
     def __str__(self):
         return self.titulo

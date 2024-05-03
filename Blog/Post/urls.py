@@ -1,5 +1,5 @@
 from django.urls import path
-
+from . import views
 from .views import (
     home_view,
     PostListView,
@@ -26,6 +26,7 @@ urlpatterns = [
     path("logout/", user_logout_view, name="logout"),
     path("crear-usuario/", user_creation_view, name="crear-usuario"),
     path("editar-perfil/", UserUpdateView.as_view(), name= 'editar-perfil'),
+    path('about/', views.about, name='about'),
     
 ]
 

@@ -13,11 +13,12 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Sub-título</th>
-                    <th scope="col">Contenido</th>
+                    <th scope="col">País de destino</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Comentarios</th>
                     <th scope="col">Fecha</th>
                     <th scope="col">Autor</th>
+                    <th scope="col">Imagen</th>
                     <th scope="col">Acciones</th>
 
                 </tr>
@@ -32,6 +33,11 @@
                     <td>{{ post.contenido }}</td>
                     <td>{{ post.fecha }}</td>
                     <td>{{ post.autor }}</td>
+                    {% if post.imagen %}
+                    <td><img src="{{ post.imagen.url }}" alt="Imagen del post" style="max-width: 100px; max-height: 100px;"></td>
+                    {% else %}
+                    <td>No hay imagen disponible</td>
+                    {% endif %}
                     <td>
                         <a href="{% url 'post-update' post.id %}" class="btn btn-primary btn-sm">Editar</a>
                         <a href="{% url 'post-delete' post.id %}" class="btn btn-primary btn-sm">Eliminar</a>

@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.http import HttpResponse
-
+from django.conf.urls.static import static
 
 def mi_funcion_que_es_una_vista_o_view(xx):
     return HttpResponse("<h1>Bienvenidos a mi Blog</h1>")
@@ -30,3 +30,5 @@ urlpatterns = [
     path("", mi_funcion_que_es_una_vista_o_view),
     path("Post/", include("Post.urls")), # conecto las URLS de `Post` con las URLS generales
 ]
+
+urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

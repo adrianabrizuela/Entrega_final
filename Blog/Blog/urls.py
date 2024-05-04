@@ -20,6 +20,8 @@ from django.urls import path, include
 
 from django.http import HttpResponse
 from django.conf.urls.static import static
+from django.conf import settings
+
 
 def mi_funcion_que_es_una_vista_o_view(xx):
     return HttpResponse("<h1>Bienvenidos a mi Blog</h1>")

@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 
 
 class Post(models.Model):
-    titulo = models.CharField(max_length=100)
-    subtitulo = models.CharField(max_length=100)
-    contenido = models.TextField(blank=True, null=True)
+    destino = models.CharField(max_length=100)
+    ciudad = models.CharField(max_length=100)
+    comentarios = models.TextField(blank=True, null=True)
     fecha = models.DateField(default=timezone.now)
     autor = models.ForeignKey(User, null= True, on_delete= models.SET_NULL)
     imagen = models.ImageField(upload_to='blog_images/')  # Definimos el campo de imagen

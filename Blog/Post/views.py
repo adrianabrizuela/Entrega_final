@@ -51,7 +51,7 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = "post/vbc/post_form.html"
-    fields = ["titulo", "subtitulo", "contenido", "fecha",  "autor", "imagen"]
+    fields = ["destino", "ciudad", "comentarios", "fecha",  "autor", "imagen"]
     context_object_name = "post"
     success_url = reverse_lazy("post-list")
 
@@ -59,7 +59,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "post/vbc/post_form.html"
-    fields = ["titulo", "subtitulo", "contenido", "fecha", "autor", "imagen"]
+    fields = ["destino", "ciudad", "comentarios", "fecha", "autor", "imagen"]
     success_url = reverse_lazy("post-list")
 
 
@@ -136,7 +136,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 
 def about(request):
     # Aquí puedes definir la información sobre los dueños de la página
-    owners_info = "Acerca de los dueños de la página: ..."
+    owners_info = "Ésta es una página de recomendaciones para viajes."
 
     # Renderiza la plantilla "about.html" con la información de los dueños
     return render(request, 'about.html', {'owners_info': owners_info})

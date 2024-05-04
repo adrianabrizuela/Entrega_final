@@ -28,9 +28,9 @@
                 {% for post in ADRIANDARGELOS %}
                 <tr>
                     <th scope="row">{{ forloop.counter }}</th>
-                    <td>{{ post.titulo }}</td>
-                    <td>{{ post.subtitulo }}</td>
-                    <td>{{ post.contenido }}</td>
+                    <td>{{ post.destino }}</td>
+                    <td>{{ post.ciudad }}</td>
+                    <td>{{ post.comentarios }}</td>
                     <td>{{ post.fecha }}</td>
                     <td>{{ post.autor }}</td>
                     {% if post.imagen %}

@@ -12,16 +12,20 @@
                         Detalle del Post
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">País de destino: {{ GUSTAVOCERATI.titulo }}</h5>
+                        <h5 class="card-title">País de destino: {{ GUSTAVOCERATI.destino }}</h5>
                         <!-- {% if GUSTAVOCERATI.disponible %}
                         <h6 class="card-subtitle mb-2">Disponibilidad: Disponible</h6>
                         {% else %}
                         <h6 class="card-subtitle mb-2">Disponibilidad: No Disponible</h6>
                         {% endif %} -->
-                        <p class="card-text">Ciudad: {{ GUSTAVOCERATI.subtitulo }}</p>
-                        <p class="card-text">Comentarios: {{ GUSTAVOCERATI.contenido | default:"No proporcionado" }}</p>
+                        <p class="card-text">Ciudad: {{ GUSTAVOCERATI.ciudad }}</p>
+                        <p class="card-text">Comentarios: {{ GUSTAVOCERATI.comentarios | default:"No proporcionado" }}</p>
                         <p class="card-text">Autor: {{ GUSTAVOCERATI.autor }}</p>
-                        <p class="card-text">Imagen: {{ GUSTAVOCERATI.imagen }}</p>
+                        {% if GUSTAVOCERATI.imagen %}
+                        <img src="{{ GUSTAVOCERATI.imagen.url }}" alt="Imagen del post" style="max-width: 100%;">
+                    {% else %}
+                        <p>No hay imagen disponible</p>
+                    {% endif %}
                     </div>
                 </div>
                 <!-- <div class="mt-4">
